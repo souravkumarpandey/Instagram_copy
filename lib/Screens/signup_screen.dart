@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:instagram_clone/resources/auth_method.dart';
 import 'package:instagram_clone/utils/colors.dart';
 
 import '../widget/text_field_input.dart';
@@ -43,17 +44,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 color: primaryColor,
                 height: 64,
               ),
-              const SizedBox(height:  24),
+              const SizedBox(height: 24),
               Stack(
                 children: [
-                 const CircleAvatar(
+                  const CircleAvatar(
                     radius: 64,
                     backgroundImage: NetworkImage(
                         'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
                   ),
                   Positioned(
                     bottom: -10,
-                    left:80,
+                    left: 80,
                     child: IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -64,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ],
               ),
               //textField input for email
-              const SizedBox(height:  24),
+              const SizedBox(height: 24),
               TextFieldWidget(
                 hintText: 'Enter your Username',
                 textInputType: TextInputType.emailAddress,
@@ -91,8 +92,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               const SizedBox(height: 24),
               InkWell(
+                onTap: () async {
+                  String res = await AuthMethods().signUpuser(
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                      username: _usernameController.text,
+                      bio: _bioController.text);
+                },
                 child: Container(
-                  child: const Text('Log In'),
+                  child: const Text('Sign Up'),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
@@ -110,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // textFiel input for password
               // button login
               // Transitioning to signing up
-              
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
