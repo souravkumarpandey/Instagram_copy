@@ -89,7 +89,7 @@ pageController.jumpToPage(page);
 
     return Scaffold(
       body: PageView(
-        children: homeScreenItem,
+        children: homeScreenItems,
         physics:const  NeverScrollableScrollPhysics(),
         controller: pageController,
         onPageChanged: onPageChanged,

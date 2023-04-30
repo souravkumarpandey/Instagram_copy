@@ -168,7 +168,7 @@ class _PostCardState extends State<PostCard> {
           Row(
             children: [
               LikeAnimation(
-                isAnimating: widget.snap['likes'].contains(user!.uid),
+                isAnimating: widget.snap['likes'].contains(user?.uid),
                 smallLike: true,
                 child: IconButton(
                   onPressed: () async {
@@ -178,7 +178,7 @@ class _PostCardState extends State<PostCard> {
                       widget.snap['likes'],
                     );
                   },
-                  icon: widget.snap['likes'].contains(user.uid)
+                  icon: widget.snap['likes'].contains(user!.uid)
                       ? const Icon(
                           Icons.favorite,
                           color: Colors.red,
